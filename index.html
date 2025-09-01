@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoor Spogmay | Portfolio</title>
+    
+    <style>
+        :root {
+            --light-pink: #f8c9d2;
+            --soft-purple: #c2b9f3;
+            --light-blue: #b9e3f3;
+            --pastel-green: #c9f8d2;
+            --dark-text: #4a4a4a;
+            --light-text: #ffffff;
+            --card-bg: #ffffff;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, var(--light-blue), var(--soft-purple));
+            color: var(--dark-text);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            animation: backgroundGradient 20s ease infinite;
+        }
+
+        @keyframes backgroundGradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header & Avatar Styling */
+        header {
+            text-align: center;
+            padding: 80px 0 50px;
+            position: relative;
+        }
+
+        .avatar {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 5px solid var(--light-text);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            object-fit: cover;
+            animation: fadeIn 2s ease-in-out;
+            transition: transform 0.3s ease;
+        }
+        
+        .avatar:hover {
+            transform: scale(1.05) rotate(5deg);
+        }
+
+        h1 {
+            font-size: 3.5em;
+            margin: 20px 0 10px;
+            color: var(--light-text);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            animation: slideInFromTop 1s ease-out;
+        }
+
+        .subtitle {
+            font-size: 1.4em;
+            color: var(--light-text);
+            margin-bottom: 30px;
+            animation: slideInFromLeft 1.2s ease-out;
+        }
+
+        /* Section Styling */
+        section {
+            padding: 60px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 2.5em;
+            color: var(--light-text);
+            margin-bottom: 40px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Project Grid */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            padding: 25px;
+            text-align: center;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            cursor: pointer;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .project-card h3 {
+            color: var(--dark-text);
+            font-size: 1.5em;
+            margin-top: 0;
+        }
+
+        .project-card p {
+            font-size: 1em;
+            color: #6c757d;
+        }
+
+        .project-image {
+            width: 100%;
+            height: 200px;
+            border-radius: 8px;
+            object-fit: cover;
+            margin-bottom: 15px;
+            background-color: #e9ecef;
+        }
+
+        /* Contact Section */
+        #contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            background-color: var(--card-bg);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            width: 70%;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        #contact-form input, #contact-form textarea {
+            padding: 15px;
+            border: 1px solid #ced4da;
+            border-radius: 8px;
+            font-size: 1em;
+            transition: border-color 0.3s ease;
+        }
+
+        #contact-form input:focus, #contact-form textarea:focus {
+            outline: none;
+            border-color: var(--soft-purple);
+        }
+
+        #contact-form button {
+            padding: 15px;
+            background-color: var(--soft-purple);
+            color: var(--light-text);
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #contact-form button:hover {
+            background-color: #a499d6;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideInFromTop {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes slideInFromLeft {
+            from { transform: translateX(-50px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <header>
+            <img src="" alt="Hoor Spogmay's Avatar" class="avatar">
+            <h1>Hoor Spogmay</h1>
+            <p class="subtitle">HTML, CSS & JavaScript Developer</p>
+        </header>
+
+        <section id="about">
+            <h2>About Me</h2>
+            <p style="text-align: center; font-size: 1.1em;">
+                I am a passionate and dedicated developer specializing in creating clean, functional, and visually appealing web projects using HTML, CSS, and JavaScript. My projects focus on creating simple, yet powerful tools to enhance daily life.
+            </p>
+        </section>
+
+        <section id="projects">
+            <h2>My Projects</h2>
+            <div class="project-grid">
+
+                <div class="project-card">
+                    <img class="project-image" src="" alt="Pomodoro Routine Tracker">
+                    <h3>Pomodoro Routine Tracker</h3>
+                    <p>A web-based Pomodoro timer to help users manage their time and boost productivity with a focus on a clean, minimal design.</p>
+                </div>
+
+                <div class="project-card">
+                    <img class="project-image" src="" alt="Timetable Tracker">
+                    <h3>Timetable Tracker</h3>
+                    <p>An interactive timetable application for tracking daily and weekly schedules. It features a customizable layout and intuitive interface.</p>
+                </div>
+
+                <div class="project-card">
+                    <img class="project-image" src="" alt="Bookmark Manager">
+                    <h3>Bookmark Manager</h3>
+                    <p>A simple and efficient bookmark manager to organize and categorize favorite links. It's built for speed and ease of use.</p>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Get in Touch</h2>
+            <form id="contact-form">
+                <input type="text" id="name" placeholder="Your Name" required>
+                <input type="email" id="email" value="hoorspogmay48@gmail.com" readonly>
+                <textarea id="message" rows="5" placeholder="Your Message" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+            <div id="form-message" style="text-align: center; margin-top: 20px; display: none;"></div>
+        </section>
+
+    </div>
+
+    <script>
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add 'visible' class to sections as they come into view
+        const sections = document.querySelectorAll('section');
+        const options = {
+            threshold: 0.2
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, options);
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+
+        // Contact form placeholder functionality
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevents the form from actual submission
+            const formMessage = document.getElementById('form-message');
+            formMessage.style.display = 'block';
+            formMessage.style.color = '#28a745';
+            formMessage.textContent = 'Thank you for your message! This is a placeholder. In a real-world scenario, you would connect this form to a backend service.';
+            
+            // Clear the form and hide the message after a short delay
+            setTimeout(() => {
+                document.getElementById('contact-form').reset();
+                formMessage.style.display = 'none';
+            }, 5000);
+        });
+    </script>
+</body>
+</html>
